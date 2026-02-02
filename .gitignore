@@ -1,2 +1,33 @@
-dataset/
+# Datasets
+datasets/
+
+# Jupyter Notebook Checkpoints
 .ipynb_checkpoints/
+
+# Python / Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+bin/
+lib/
+develop-eggs/
+dist/
+eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+
+# VS Code settings
+.vscode/
+
+# Project specific artifacts (Keep these if you want to track model versions, 
+# but usually .h5 and .pkl files are ignored if they are large)
+# scaler.pkl
+# ser_model.h5
