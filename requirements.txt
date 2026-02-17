@@ -1,0 +1,28 @@
+# Data Manipulation and Math
+numpy
+pandas
+
+# Audio Processing and Feature Extraction
+librosa
+soundfile
+scipy
+
+# Deep Learning (TensorFlow/Keras)
+tensorflow>=2.16.1
+keras>=3.0
+
+# Deep Learning (Whisper & Torch)
+openai-whisper
+torch
+torchvision
+torchaudio
+
+# Machine Learning Utilities
+scikit-learn
+
+# Visualization
+matplotlib
+seaborn
+
+# Database and Utilities
+pymongo
