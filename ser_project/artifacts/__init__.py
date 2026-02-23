@@ -6,4 +6,4 @@ class SERDataLoaderArtifacts:
     emotion_map = EMOTION_MAP
     ser_path_extension = SER_PATH_EXENSION
     ser_res_type = SER_RES_TYPE
-    data_path = DATA_PATH
+    data_path = DATASET_PATH

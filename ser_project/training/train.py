@@ -5,7 +5,7 @@ from ser_project.training.training import build_ser_cnn
 
 logger = Logging()
 class SERTrainingPipeline:
-    def run_training_pipeline(raw_data_path):
+    def run_training_pipeline(self, raw_data_path):
         try:
             logger.info("--- Phase 1: Ingesting Raw Audio ---")
             loader = SERDataLoader(raw_data_path)
@@ -24,8 +24,8 @@ class SERTrainingPipeline:
 
             logger.info("--- Phase 5: Saving Pipeline Artifacts ---")
             try:
-                model.save('artifacts/ser_model.keras')
-                with open('artifacts/scaler.pkl', 'wb') as f:
+                model.save('ser_project/artifacts/ser_model.keras')
+                with open('ser_project/artifacts/scaler.pkl', 'wb') as f:
                     pickle.dump(scaler, f)
                 logger.info("Pipeline execution complete.")
             except Exception as save_err:

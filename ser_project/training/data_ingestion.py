@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from ser_project.training.features import extract_audio_features
 from ser_project.artifacts import SERDataLoaderArtifacts
 class SERDataLoader:
-    def __init__(self, dataset_path = "ARTIFACTS_PATH"):
+    def __init__(self, dataset_path = SERDataLoaderArtifacts.data_path):
         self.dataset_path = dataset_path
         self.emotion_map = SERDataLoaderArtifacts.emotion_map
     def process_dataset(self):
