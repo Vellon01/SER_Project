@@ -28,8 +28,10 @@ class SERTrainingPipeline:
                 with open('ser_project/artifacts/scaler.pkl', 'wb') as f:
                     pickle.dump(scaler, f)
                 logger.info("Pipeline execution complete.")
+                return x_test, y_test
             except Exception as save_err:
                 logger.error(f"Error saving artifacts: {save_err}")
+                return None, None
 
         except FileNotFoundError as fnf_err:
             logger.error(f"File not found: {fnf_err}")

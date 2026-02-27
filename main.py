@@ -6,5 +6,7 @@ evaluator = ModelEvaluator()
 
 if __name__ == "__main__":
     DATA_PATH = SERDataLoaderArtifacts.data_path
-    sertrainer.run_training_pipeline(DATA_PATH)
-    evaluator.evaluate_and_update()
+    x_test, y_test = sertrainer.run_training_pipeline(DATA_PATH)
+    
+    if x_test is not None and y_test is not None:
+        evaluator.evaluate_and_update(x_test, y_test)
