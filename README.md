@@ -7,7 +7,13 @@ This repository contains data ingestion, feature extraction, training and
 evaluation scripts plus a notebook for experimentation. The included dataset
 references the RAVDESS audio files under `datasets/uwrfkaggler`.
 
-## 🔄 Recent updates (Feb 2026)
+## 🔄 Recent updates (Mar 2026)
+- Added `realtime_predict.py` for live, real-time emotion prediction using microphone input.
+- Expanded feature extraction capabilities to include `OpenSMILE` and `Wav2Vec 2.0` embeddings alongside standard Librosa features.
+- Refactored training and evaluation flow to evaluate with validation data directly.
+- General refactoring of code structure for improved maintainability.
+
+## 🔄 Previous updates (Feb 2026)
 - Added `Logging` utility that creates time‑stamped log files in `logs/` and
   prints to the console.
 - Introduced `SERTrainingPipeline` class with multi‑phase workflow and
@@ -25,6 +31,7 @@ references the RAVDESS audio files under `datasets/uwrfkaggler`.
 
 ## 🔧 Key components
 - `main.py`: entry point that runs the training pipeline and evaluation.
+- `realtime_predict.py`: script for real-time live emotion prediction from microphone.
 - `SER.ipynb`: Jupyter notebook for exploration and experiments.
 - `ser_project/training/data_ingestion.py`: dataset loading, feature extraction,
   and train/validation splitting.
@@ -71,6 +78,13 @@ Quick start
   The script will ingest audio, train the CNN, save the latest model and
   scaler under `ser_project/artifacts/ser_model.keras`/`scaler.pkl`, then
   evaluate it against the current "best" model and update archives.
+
+- To run real-time predictions from your microphone, execute:
+
+  ```bash
+  python realtime_predict.py --feature_type librosa
+  ```
+  *(Supported feature types: `librosa`, `opensmile`, `wav2vec`)*
 
 - If you prefer to call individual components you can also import and use
   `SERTrainingPipeline` or `ModelEvaluator` directly in your own script.
