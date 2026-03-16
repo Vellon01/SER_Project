@@ -70,12 +70,19 @@ def main():
             # 1. Record audio
             audio_data = record_audio(duration=args.duration, sr=sr)
             
-            # Remove silent ends to center the speech (optional but helpful)
             import librosa
-            audio_data, _ = librosa.effects.trim(audio_data, top_db=30)
+            
+            # Normalize microphone volume (scale peak to 1.0 or -1.0) to match training data intensity.
+            # Live mics are often much quieter than professionally recorded datasets like RAVDESS. 
+            # A low-volume signal mimics the low-energy properties of certain emotions (like 'disgusted', 'sad', 'calm').
+            audio_data = librosa.util.normalize(audio_data)
+
+            # Remove silent ends to center the speech. 
+            # A top_db of 20 is more aggressive than 30, helping filter out ambient background room noise.
+            audio_data, _ = librosa.effects.trim(audio_data, top_db=20)
             
             if len(audio_data) < sr * 0.5:
-                print("Audio too short or silent. Try again.")
+                print("Audio signal too short or silent after trimming room noise. Try speaking closer to the microphone.")
                 continue
 
             # 2. Extract features
