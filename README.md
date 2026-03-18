@@ -7,7 +7,15 @@ This repository contains data ingestion, feature extraction, training and
 evaluation scripts plus a notebook for experimentation. The included dataset
 references the RAVDESS audio files under `datasets/uwrfkaggler`.
 
+## 🌍 Web User Interface
+The project now includes a stunning, real-time native web frontend hosted directly via FastAPI. It connects to the backend via WebSockets and natively encodes microphone audio into valid PCM WAV buffers in the browser—no need for extra dependencies or `ffmpeg`!
+
+![VEL-VOX Frontend UI Demo](static/frontend_demo.webp)
+
 ## 🔄 Recent updates (Mar 2026)
+- **Real-time Web UI**: Added a premium, glassmorphism-themed web interface (`templates/index.html`) using pure HTML/CSS/JS.
+- **WebSocket API**: Upgraded `api.py` with a `ws://.../ws/predict` WebSocket endpoint for low-latency live audio streaming.
+- **Robust Audio Processing**: Added `librosa.util.normalize()` and aggressive noise-trimming to real-time streams to prevent ambient room noise from being misinterpreted as "disgusted".
 - Added `realtime_predict.py` for live, real-time emotion prediction using microphone input.
 - Expanded feature extraction capabilities to include `OpenSMILE` and `Wav2Vec 2.0` embeddings alongside standard Librosa features.
 - Refactored training and evaluation flow to evaluate with validation data directly.
@@ -86,6 +94,13 @@ Quick start
   ```
   *(Supported feature types: `librosa`, `opensmile`, `wav2vec`)*
 
+- To launch the web API and UI frontend for browser-based microphone streaming, run:
+
+  ```bash
+  uvicorn api:app --reload
+  ```
+  Then open `http://127.0.0.1:8000` in your browser.
+
 - If you prefer to call individual components you can also import and use
   `SERTrainingPipeline` or `ModelEvaluator` directly in your own script.
 
@@ -118,7 +133,9 @@ Contributing
 	include environment details when reporting bugs.
 
 Contact
-- Author: see repository owner. Use the repository issue tracker for questions.
+- Author: **Vellon Moraes**
+- Email: [vellonmoraes@gmail.com](mailto:vellonmoraes@gmail.com) / [vellonmoraes01@gmail.com](mailto:vellonmoraes01@gmail.com)  
+- Phone: +91 9036 4694 92  
 
 License
 - Check `setup.py` / project metadata for license details, or add a `LICENSE` file.

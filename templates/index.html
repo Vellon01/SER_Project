@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEL-VOX: Real-time Emotion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="background-glow"></div>
+    <main class="glass-container">
+        <header>
+            <h1>VEL-VOX</h1>
+            <p>Real-time Speech Emotion Recognition</p>
+        </header>
+
+        <section class="interaction-area">
+            <button id="recordButton" class="mic-button">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 2C10.34 2 9 3.34 9 5V11C9 12.66 10.34 14 12 14C13.66 14 15 12.66 15 11V5C15 3.34 13.66 2 12 2ZM19 11C19 14.87 15.87 18 12 18C8.13 18 5 14.87 5 11H3C3 15.42 6.22 19.1 10.4 19.82V23H13.6V19.82C17.78 19.1 21 15.42 21 11H19Z"
+                        fill="currentColor" />
+                </svg>
+            </button>
+            <div id="statusText" class="status">Click to Start Recording</div>
+        </section>
+
+        <section class="result-area">
+            <div id="emotionDisplay" class="emotion-text hidden">LISTENING...</div>
+            <div id="confidenceBar" class="confidence hidden">
+                <div class="fill" id="confidenceFill"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
