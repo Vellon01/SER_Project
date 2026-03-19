@@ -135,7 +135,7 @@ Contributing
 Contact
 - Author: **Vellon Moraes**
 - Email: [vellonmoraes@gmail.com](mailto:vellonmoraes@gmail.com) / [vellonmoraes01@gmail.com](mailto:vellonmoraes01@gmail.com)  
-- Phone: +91 9036 4694 92  
+- Phone: +91 99231 42679  
 
 License
 - Check `setup.py` / project metadata for license details, or add a `LICENSE` file.
